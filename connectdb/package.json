@@ -1,0 +1,14 @@
+{
+  "name": "supabase-connection-test",
+  "version": "1.0.0",
+  "description": "Test Supabase database connection using both direct and client methods",
+  "scripts": {
+    "test": "node test-connection.js",
+    "test:direct": "node test-direct-connection.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0",
+    "dotenv": "^16.3.1",
+    "pg": "^8.11.3"
+  }
+}
