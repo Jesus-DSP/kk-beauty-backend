@@ -20,7 +20,15 @@
     "pg": "^8.11.3",
     "pg-pool": "^3.6.1",
     "@supabase/supabase-js": "^2.39.3",
-    "axios": "^1.6.2"
+    "axios": "1.11.0",
+    "follow-redirects": "1.15.11",
+    "form-data": "4.0.4",
+    "proxy-from-env": "1.1.0",
+    "asynckit": "0.4.0",
+    "combined-stream": "1.0.8",
+    "es-set-tostringtag": "2.1.0",
+    "delayed-stream": "1.0.0",
+    "has-tostringtag": "1.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.2",
