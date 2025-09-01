@@ -30,30 +30,41 @@ FRONTEND_URL=https://your-frontend-domain.com
 
 ## Deployment Steps
 
-1. **Login to Railway**
+1. **Navigate to Backend Directory**
+   ```bash
+   cd backend
+   ```
+
+2. **Login to Railway**
    ```bash
    railway login
    ```
 
-2. **Initialize Railway Project**
+3. **Initialize Railway Project**
    ```bash
    railway init
    ```
 
-3. **Link Your Project**
+4. **Link Your Project**
    ```bash
    railway link
    ```
 
-4. **Set Environment Variables**
+5. **Set Environment Variables**
    - Go to Railway Dashboard → Your Project → Variables
    - Add all required environment variables
    - Railway will automatically set PORT
 
-5. **Deploy**
+6. **Deploy**
    ```bash
    railway up
    ```
+
+## Important Notes
+
+- Make sure you're in the `backend` directory when deploying
+- The `railway.json` and `Procfile` must be in the backend directory
+- All npm commands will run from the backend directory
 
 ## Monitoring & Logs
 
@@ -83,8 +94,9 @@ FRONTEND_URL=https://your-frontend-domain.com
 Railway automatically deploys when you push to your GitHub repository. To set this up:
 
 1. Connect your GitHub repository in Railway Dashboard
-2. Enable automatic deployments
-3. Configure branch rules if needed
+2. Set the root directory to `/backend` in the deployment settings
+3. Enable automatic deployments
+4. Configure branch rules if needed
 
 ## Best Practices
 
