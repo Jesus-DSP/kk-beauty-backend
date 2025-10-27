@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const OrderService = require('./services/orderService');
+const NewsletterService = require('./services/newsletterService');
 const { pool } = require('./database/connection');
 
 // Validate environment variables
@@ -302,6 +303,37 @@ app.put('/api/admin/orders/:orderId/status', async (req, res) => {
   } catch (error) {
     console.error('Error updating order status:', error);
     res.status(500).json({ error: 'Failed to update order status' });
+  }
+});
+
+// Newsletter subscription endpoint
+app.post('/api/newsletter/subscribe', async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      return res.status(400).json({ 
+        error: 'Email is required' 
+      });
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ 
+        error: 'Invalid email format' 
+      });
+    }
+
+    const result = await NewsletterService.subscribe(email);
+    res.json(result);
+
+  } catch (error) {
+    console.error('Error in newsletter subscription:', error);
+    res.status(500).json({ 
+      error: 'Failed to subscribe to newsletter',
+      details: error.message 
+    });
   }
 });
 
